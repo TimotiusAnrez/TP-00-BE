@@ -1,0 +1,31 @@
+{
+  "name": "TP-00-BE",
+  "version": "1.0.0",
+  "description": "Test Project-00 Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimotiusAnrez/TP-00-BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimotiusAnrez/TP-00-BE/issues"
+  },
+  "homepage": "https://github.com/TimotiusAnrez/TP-00-BE#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3-rc.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14",
+    "dotenv": "^10.0.0"
+  }
+}
