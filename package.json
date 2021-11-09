@@ -22,10 +22,11 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.3.3-rc.0"
+    "mysql2": "^2.3.3-rc.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.14",
-    "dotenv": "^10.0.0"
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14"
   }
 }
