@@ -10,8 +10,8 @@ routes.get('/', (req, res) => {
   res.send('home');
 });
 
-routes.use('/users', userRoutes);
 routes.use('/auth', authRoutes);
+routes.use('/users', userRoutes);
 
 //! @ Private access
 routes.use('/todo', todoRoutes);
