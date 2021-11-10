@@ -8,17 +8,20 @@ async function login(req, res, next) {
     let user = await User.findOne({ email: credential });
     let isMatch = await bycrpt.compare(password, user.password);
 
+    //checking credential
     if (!user) {
       return res
         .status(400)
         .json({ message: [{ message: 'email and password do not match' }] });
     }
-
+    //checking password
     if (!isMatch) {
       return res
         .status(400)
         .json({ errors: [{ message: 'email and password do not match' }] });
     }
+
+    //return token
     const payload = {
       user: {
         id: user.id,
