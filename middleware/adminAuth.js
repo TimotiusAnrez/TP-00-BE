@@ -12,7 +12,7 @@ module.exports = function (req, res, next) {
 
   //? if token exist
   try {
-    jwt.verify(token, process.env.ADMIN_SECRET, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET_ADMIN_TOKEN, (err, decoded) => {
       if (err) {
         throw err;
       }
