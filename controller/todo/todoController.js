@@ -3,11 +3,12 @@ const uuid = require('uuid');
 
 class TodoController {
   static async getTodo(req, res, next) {
-    const { user_id } = req.body;
+    const { user_id } = req.user;
     try {
-      const data = await pool.query('SELECT * FROM todo WHERE user_id = $1', [
-        user_id,
-      ]);
+      const data = await pool.query(
+        'SELECT todo_id, description FROM todo WHERE user_id = $1',
+        [user_id]
+      );
       res.json(data.rows);
     } catch (error) {
       console.error(error);
@@ -18,12 +19,12 @@ class TodoController {
   static async createTodo(req, res, next) {
     const todoId = uuid.v4();
     const description = req.body.description;
-    const userId = uuid.v4();
+    const { user_id } = req.user;
     const created_at = new Date();
     try {
       const newTodo = await pool.query(
         'INSERT INTO todo (todo_id, description, user_id, created_at) VALUES($1,$2,$3,$4) RETURNING *',
-        [todoId, description, userId, created_at]
+        [todoId, description, user_id, created_at]
       );
       res.json(newTodo.rows[0]);
     } catch (error) {

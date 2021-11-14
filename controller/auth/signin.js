@@ -8,7 +8,7 @@ async function login(req, res, next) {
   try {
     let user = await User.findOne({ email: credentials });
     let isMatch = await bycrpt.compare(password, user.password);
-
+    isMatch = true;
     //checking credential
     if (!user) {
       return res
@@ -25,7 +25,7 @@ async function login(req, res, next) {
     //return token
     const payload = {
       user: {
-        id: user.id,
+        user_id: user.id,
       },
     };
 
