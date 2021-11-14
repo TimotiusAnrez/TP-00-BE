@@ -8,7 +8,7 @@ const signinController = require('../../controller/auth/signin');
 //! @Private for user use auth require
 authRoutes.post(
   '/login',
-  check('credential', 'user not found').isEmail(),
+  check('credentials', 'invalid email').isEmail(),
   check('password', 'user not found').isLength({ min: 6 }),
   (req, res, next) => {
     const error = validationResult(req);

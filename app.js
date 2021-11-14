@@ -7,6 +7,7 @@ const cors = require('cors');
 app.use(cors());
 
 const connectDB = require('./config/mongoDB');
+const pool = require('./config/postgresDB');
 
 const PORT = process.env.PORT || 8000;
 

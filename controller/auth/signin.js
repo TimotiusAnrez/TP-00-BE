@@ -3,9 +3,10 @@ const bycrpt = require('bcryptjs');
 const User = require('../../model/Users');
 
 async function login(req, res, next) {
-  const { credential, password } = req.body;
+  const { credentials, password } = req.body;
+  console.log(req.body);
   try {
-    let user = await User.findOne({ email: credential });
+    let user = await User.findOne({ email: credentials });
     let isMatch = await bycrpt.compare(password, user.password);
 
     //checking credential
